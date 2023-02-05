@@ -19,6 +19,7 @@ function ProductsList({ products }) {
 export default ProductsList;
 
 export async function getStaticProps() {
+	console.log("Generating / Regenerating ProductsList");
 	const response = await fetch("http://localhost:4000/products");
 	const data = await response.json();
 
@@ -26,5 +27,6 @@ export async function getStaticProps() {
 		props: {
 			products: data,
 		},
+		revalidate: 10,
 	};
 }
