@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
@@ -18,10 +20,16 @@ export default function App({ Component, pageProps }) {
 	}
 
 	return (
-		<ThemeProvider theme={theme}>
-			<Header />
-			<Component {...pageProps} />
-			<Footer />
-		</ThemeProvider>
+		<>
+			<Head>
+				<title>Codevolution</title>
+				<meta name="description" content="Awesome YouTube channel" />
+			</Head>
+			<ThemeProvider theme={theme}>
+				<Header />
+				<Component {...pageProps} />
+				<Footer />
+			</ThemeProvider>
+		</>
 	);
 }
