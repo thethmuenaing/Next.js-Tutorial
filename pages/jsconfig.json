@@ -1,8 +1,8 @@
-{
-	"compilerOptions": {
-		"baseUrl": ".",
-		"paths": {
-			"@/layout/*" : ["components/layout/*"]
-		}
-	}
-}
+// {
+// 	"compilerOptions": {
+// 		"baseUrl": ".",
+// 		"paths": {
+// 			"@/layout/*" : ["components/layout/*"]
+// 		}
+// 	}
+// }
