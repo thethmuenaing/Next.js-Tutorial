@@ -27,6 +27,9 @@ export async function getStaticProps(context) {
 		(comment) => comment.id === parseInt(commentId)
 	);
 	console.log(comment);
+	const response = await fetch(`http:localhost:3000/api/comments/${commentId}`);
+	const data = await response.json();
+	console.log("data ", data);
 
 	/*
 			Don't do this
