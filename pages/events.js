@@ -33,11 +33,12 @@ function EventList({ eventList }) {
 }
 export default EventList;
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
 	const { query } = context;
-	const { category } = query;
-	const queryString = category ? "category=sports" : "";
-	const response = await fetch(`http://localhost:4000/events?${queryString}`);
+	// const { category } = query;
+	// const queryString = category ? "category=sports" : "";
+	// const response = await fetch(`http://localhost:4000/events?${queryString}`);
+	const response = await fetch(`http://localhost:4000/events`);
 	const data = await response.json();
 
 	return {

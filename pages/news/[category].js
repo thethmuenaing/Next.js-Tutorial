@@ -21,7 +21,14 @@ function ArticleListByCategory({ articles, category }) {
 
 export default ArticleListByCategory;
 
-export async function getServerSideProps(context) {
+export async function getStaticPaths() {
+	return {
+		paths: [{ params: { category: "1" } }],
+		fallback: false,
+	};
+}
+
+export async function getStaticProps(context) {
 	const { params } = context;
 	const { category } = params;
 	const response = await fetch(

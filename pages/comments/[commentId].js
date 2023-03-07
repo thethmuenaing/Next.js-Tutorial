@@ -11,9 +11,9 @@ export default Comment;
 export async function getStaticPaths() {
 	return {
 		paths: [
-			{ params: { commentsId: "1" } },
-			{ params: { commentsId: "2" } },
-			{ params: { commentsId: "3" } },
+			{ params: { commentId: "1" } },
+			{ params: { commentId: "2" } },
+			{ params: { commentId: "3" } },
 		],
 		fallback: false,
 	};
@@ -23,13 +23,10 @@ export async function getStaticProps(context) {
 	const { params } = context;
 	const { commentId } = params;
 
-	const comment = comments.fing(
+	const comment = comments.find(
 		(comment) => comment.id === parseInt(commentId)
 	);
 	console.log(comment);
-	const response = await fetch(`http:localhost:3000/api/comments/${commentId}`);
-	const data = await response.json();
-	console.log("data ", data);
 
 	/*
 			Don't do this
