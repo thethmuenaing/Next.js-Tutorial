@@ -3,7 +3,7 @@ import { signIn, signOut, useSession } from "next-auth/client";
 
 function Navbar() {
 	const [session, loading] = useSession();
-	console.log({ session, loading });
+	// console.log({ session, loading });
 	return (
 		<nav className="header">
 			<h1 className="logo">
@@ -13,9 +13,11 @@ function Navbar() {
 				<li>
 					<Link href="/">Home</Link>
 				</li>
-				<li>
-					<Link href="/dashboard">Dashboard</Link>
-				</li>
+				{session && !loading && (
+					<li>
+						<Link href="/dashboard">Dashboard</Link>
+					</li>
+				)}
 				<li>
 					<Link href="/blog">Blog</Link>
 				</li>
