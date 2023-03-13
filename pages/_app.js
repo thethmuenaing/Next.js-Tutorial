@@ -27,6 +27,7 @@ export default function App({ Component, pageProps }) {
 			</Head>
 			<ThemeProvider theme={theme}>
 				<Header />
+
 				<Component {...pageProps} />
 				<Footer />
 			</ThemeProvider>
